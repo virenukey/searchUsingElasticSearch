@@ -43,7 +43,7 @@ Body:
 3. Start "searchFlask.py"
 4. Open "search.html"
 5. Enter text "memory management" in text box
-6. Will get indexed document
+6. Will get indexed document in response
 
 Note
 ========
