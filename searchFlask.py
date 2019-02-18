@@ -24,7 +24,8 @@ def search():
         a = []
         for i in res["hits"]["hits"]:
             a.append(i['_source']['link'])
-        str1 = "\n,\r\n".join(a)
+        list_set = set(a)
+        str1 = "\n,\r\n".join(list_set)
         return  str1
     else:
         return "No search found"
