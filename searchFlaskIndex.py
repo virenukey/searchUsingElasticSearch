@@ -21,7 +21,7 @@ def index():
     docId = request.form['docId']
     name = request.form['name']
     link = request.form['link']
-    link = "<a href=\"" + link + "\"" + ">" + link + "</a>"
+    link = "<a href=\"" + link + "\"" + ">" + name + "</a>" + "<br/>" + link
     keyword = request.form['keyword']
     es = Elasticsearch([{'host':'192.168.234.129','port':9200}])
     res = es.index(index="qa_kb", doc_type="link", id = docId, body={"name":name, "link":link, "keyword":keyword})
@@ -37,7 +37,7 @@ def search():
         for i in res["hits"]["hits"]:
             a.append(i['_source']['link'])
         list_set = OrderedSet(a)
-        str1 = '<br/>'.join(map(str, list_set))
+        str1 = '<br/><br/>'.join(map(str, list_set))
         return  str1
     else:
         return "No search found"
