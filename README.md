@@ -23,34 +23,23 @@ Installation
 2. Download and untar elasticSearch - https://www.elastic.co/guide/en/elasticsearch/reference/current/getting-started-install.html
 2. Install ElasticSearch - https://dzone.com/articles/elasticsearch-setup-and-configuration
 3. Following Getting started with Elastic Search - https://www.elastic.co/guide/en/elasticsearch/reference/current/getting-started.html
-4. Download and install Postman - https://www.getpostman.com/
-5. Using postman, index document. Follow following example:
-URL - http://192.168.234.129:9200/qa_kb/link/1?pretty [http://<elasticEndpoint:port>/index/type/docId]
-
 
 Getting Started
 =================
 1. Using non-root user, start elastic search
-2. Index few documents .e.g
-Url - http://192.168.234.129:9200/qa_kb/link/1?pretty 
-Header - ContentType: application/json
-Body:
-{
-  "name": "python memory management",
-  "link":  "<a href=\"https://realpython.com/python-memory-management/\">https://realpython.com/python-memory-management/</a>",
-  "keyword": "memory management"
-}
-3. Start "searchFlask.py"
-4. Open "search.html"
-5. Enter text "memory management" in text box
-6. Will get indexed document in response
-
-Note
-========
-Enhance this tool, for indexing PDF, word document. Index new doc type. For this poc I have used "link" as doc type,
-because I am indexing hyperlinks
+2. Start "searchFlaskIndex.py"
+3. Open "searchIndex.html"
+4. Enter the following:
+    - Name of the Document or Link in "Name" field
+    - Link of webpage in "Link" field
+    - Keywords using we want to search this document in "Keyword" field
+    - Incremental value of DocId in "DocId" field
+    - Click on "Submit"
+5. Will get response from elastic search, where response will be either "created" or "updated"
+6. Verify newly indexed document using either, search by "Name" or "Keyword"
+7. On response of above, you will get hyperlink of indexed document with description
 
 Created by
 ===========
 - Virendra Ukey
-- Email : viruukey@gmail.com
+- Email : viruukey@gmail.com 
